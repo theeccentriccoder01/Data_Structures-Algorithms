@@ -1,6 +1,6 @@
 # Data Structures & Algorithms – Auto-Generated Encyclopedia
 
-This repository is automatically updated daily with new DSA articles generated using Google's Gemini API.
+This repository is maintained with a daily automated commit workflow.
 
 ## Daily Index
 

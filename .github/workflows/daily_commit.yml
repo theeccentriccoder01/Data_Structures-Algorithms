@@ -16,20 +16,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Check if a commit was already made today
-        id: check
-        run: |
-          LAST_COMMIT_DATE=$(git log -1 --format=%cs)
-          TODAY=$(date -u +"%Y-%m-%d")
-
-          if [ "$LAST_COMMIT_DATE" = "$TODAY" ]; then
-            echo "already_committed=true" >> $GITHUB_OUTPUT
-          else
-            echo "already_committed=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Create daily commit (ONLY if needed)
-        if: steps.check.outputs.already_committed == 'false'
+      - name: Create daily commit
         run: |
           echo "Daily commit at $(date -u)" > generator/heartbeat.txt
 
